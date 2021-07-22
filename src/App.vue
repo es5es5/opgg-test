@@ -12,6 +12,10 @@
 .fade-enter,
 .fade-leave-to { opacity: 0 }
 
+body {
+  background-color: #d8d8d8;
+}
+
 @import '@/../colony-vue/src/assets/scss/reset.scss';
 @import '@/assets/scss/variable.scss';
 </style>
