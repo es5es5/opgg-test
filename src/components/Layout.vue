@@ -3,10 +3,8 @@
     <Header />
     <main id="main">
       <SummonerProfile />
-      <div class="summary_wrap">
+      <div class="left">
         <Rank />
-      </div>
-      <div class="stats_wrap">
         <Stats />
       </div>
     </main>
@@ -35,7 +33,7 @@ export default {
   width: 1440px;
   margin: 0 auto;
 }
-.summary_wrap {
+.left {
   width: 300px;
 }
 </style>

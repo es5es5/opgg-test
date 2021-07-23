@@ -45,7 +45,23 @@ export default {
         console.log(result)
         this.$store.commit('setMatchList', result.data)
       })
-    }
+    },
+    getSummonerMatchDetail (gameId) {
+      axios.get(
+        `https://codingtest.op.gg/api/summoner/${this.summonerName}/matchDetail/${gameId}`
+      ).then(result => {
+        console.log(result)
+        this.$store.commit('setMatchDetail', result.data)
+      })
+    },
+    getItemList () {
+      axios.get(
+        'http://ddragon.leagueoflegends.com/cdn/10.15.1/data/ko_KR/item.json'
+      ).then(result => {
+        console.log(result)
+        this.$store.commit('setMatchDetail', result.data)
+      })
+    },
   }
 }
 </script>
