@@ -14,11 +14,17 @@ export default {
   created () {
     this.getSummoner()
     this.getSummonerMostInfo()
+    this.getSummonerMatchList()
+  },
+  data () {
+    return {
+      summonerName: '이뿐 냐옹이'
+    }
   },
   methods: {
     getSummoner () {
       axios.get(
-        'https://codingtest.op.gg/api/summoner/%EB%A9%8D%EB%A9%8D%EC%9D%B4%EB%9E%91%EB%83%A5%EB%83%A5%EC%9D%B4'
+        `https://codingtest.op.gg/api/summoner/${this.summonerName}`
       ).then(result => {
         console.log(result)
         this.$store.commit('setSummoner', result.data.summoner)
@@ -26,10 +32,18 @@ export default {
     },
     getSummonerMostInfo () {
       axios.get(
-        'https://codingtest.op.gg/api/summoner/%EB%A9%8D%EB%A9%8D%EC%9D%B4%EB%9E%91%EB%83%A5%EB%83%A5%EC%9D%B4/mostInfo'
+        `https://codingtest.op.gg/api/summoner/${this.summonerName}/mostInfo`
       ).then(result => {
         console.log(result)
         this.$store.commit('setMostInfo', result.data)
+      })
+    },
+    getSummonerMatchList () {
+      axios.get(
+        `https://codingtest.op.gg/api/summoner/${this.summonerName}/matches`
+      ).then(result => {
+        console.log(result)
+        this.$store.commit('setMatchList', result.data)
       })
     }
   }

@@ -1,12 +1,14 @@
 <template>
   <div>
     <Header />
-    <SummonerProfile />
     <main id="main">
+      <SummonerProfile />
       <div class="summary_wrap">
         <Rank />
       </div>
-      <div class="status_wrap">STATUS</div>
+      <div class="stats_wrap">
+        <Stats />
+      </div>
     </main>
   </div>
 </template>
@@ -15,6 +17,7 @@
 import Header from './Header'
 import SummonerProfile from './SummonerProfile'
 import Rank from './Rank'
+import Stats from './Stats.vue'
 
 export default {
   name: 'MainLayout',
@@ -22,6 +25,7 @@ export default {
     Header,
     SummonerProfile,
     Rank,
+    Stats,
   }
 }
 </script>
