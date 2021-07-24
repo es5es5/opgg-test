@@ -26,6 +26,7 @@ export default {
 <style lang="scss" scoped>
 #SummonerProfile {
   @include clearfix;
+  margin-bottom: 10px;
   height: 175px;
   border-bottom: 1px solid #d8d8d8;
 }

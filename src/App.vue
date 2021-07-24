@@ -81,5 +81,4 @@ body {
 }
 
 @import '@/../colony-vue/src/assets/scss/reset.scss';
-@import '@/assets/scss/variable.scss';
 </style>

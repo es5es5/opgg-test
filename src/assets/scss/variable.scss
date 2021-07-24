@@ -1,19 +1,21 @@
 @import '@/../colony-vue/src/assets/scss/variable.scss';
 
-$primary: #42b983;
-$success: #2d8cf0;
-$warning: #ff9900;
-$error: #ed3f14;
+// $primary: #42b983;
+// $success: #2d8cf0;
+// $warning: #ff9900;
+// $error: #ed3f14;
 
-$background: #EFEFEF;
-$disabled: #737373;
-$border: #E2E4EE;
+// $disabled: #737373;
 
-$title: #17233d;
+$background: #f2f2f2;
+$border: #cdd2d2;
+$background-active: #ededed;
 
-@mixin shadow() { box-shadow: 0 2px 4px 0 rgba(34,36,38,.12), 0 2px 10px 0 rgba(34,36,38,.15); }
+// $title: #17233d;
 
-.primary { color: $primary; }
-.success { color: $success; }
-.warning { color: $warning; }
-.error { color: $error; }
+// @mixin shadow() { box-shadow: 0 2px 4px 0 rgba(34,36,38,.12), 0 2px 10px 0 rgba(34,36,38,.15); }
+
+// .primary { color: $primary; }
+// .success { color: $success; }
+// .warning { color: $warning; }
+// .error { color: $error; }

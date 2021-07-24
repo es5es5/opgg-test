@@ -79,10 +79,6 @@ export default {
   color: #879292;
 }
 
-$background: #f2f2f2;
-$border: #cdd2d2;
-$background-active: #ededed;
-
 .champions_wrap {
   background-color: $background;
   &.active {
@@ -177,6 +173,7 @@ $background-active: #ededed;
 .tab {
   @include clearfix;
   text-align: center;
+  margin-bottom: -1px;
 
   li {
     @include hover;
@@ -189,14 +186,16 @@ $background-active: #ededed;
 
     &.active {
       background-color: $background-active;
-      border-bottom: 0;
+      border-bottom: $background-active;
     }
   }
 
   :first-child {
+    border-top-left-radius: 2px;
   }
   :nth-child(2) {
-    border-left: 0;
+    border-left: transparent;
+    border-top-right-radius: 2px;
   }
 }
 </style>
