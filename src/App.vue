@@ -73,7 +73,7 @@ export default {
 .fade-leave-to { opacity: 0 }
 
 body {
-  background-color: #ededed;
+  background-color: #eaeaea;
 }
 
 * {
