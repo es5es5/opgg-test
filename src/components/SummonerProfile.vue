@@ -62,7 +62,6 @@ export default {
     padding-top: 3px;
     background: url('../assets/images/bg-levelbox.png');
     background-size: 100%;
-    font-family: Helvetica,AppleSDGothic,"Apple SD Gothic Neo",AppleGothic,Arial,Tahoma;
     font-size: 14px;
     text-align: center;
     color: #eabd56;

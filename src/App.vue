@@ -76,6 +76,10 @@ body {
   background-color: #ededed;
 }
 
+* {
+  font-family: Helvetica,AppleSDGothic,"Apple SD Gothic Neo",AppleGothic,Arial,Tahoma;
+}
+
 @import '@/../colony-vue/src/assets/scss/reset.scss';
 @import '@/assets/scss/variable.scss';
 </style>
