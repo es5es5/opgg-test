@@ -18,7 +18,7 @@ export default {
   },
   data () {
     return {
-      summonerName: '이뿐 냐옹이'
+      summonerName: 'Louis'
     }
   },
   methods: {
