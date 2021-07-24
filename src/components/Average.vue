@@ -6,13 +6,15 @@
       <li :class="active === '자유랭크' ? 'active' : ''" @click="active = '자유랭크'">자유랭크</li>
     </ul>
     <div class="average">
-      <div class="graph">
+      <div class="donut_wrap">
+        <div class="donutTitle">20전 11승 9패</div>
         <vc-donut
           background="#ededed"
           foreground="grey"
           :size="90"
           unit="px"
           legend-placement="right"
+          :thickness="29"
           :sections="[
           {
             value: 9,
@@ -26,7 +28,7 @@
           :start-angle="0"
           :auto-adjust-text-size="true"
           >
-          <p class="donutTitle">55%</p>
+        <p class="donutText">55%</p>
         </vc-donut>
       </div>
       <div class="champions">
@@ -84,10 +86,20 @@ export default {
     float: left;
     margin: 0 16px;
 
-    &.graph {
+    &.donut_wrap {
       width: 250px;
 
+      .donut {
+        text-align: center;
+        margin: 0 auto;
+      }
+
       .donutTitle {
+        width: 100%;
+        text-align: center;
+      }
+
+      .donutText {
         font-size: 14px;
         font-weight: bold;
         text-align: center;
