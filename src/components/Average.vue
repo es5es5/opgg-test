@@ -48,11 +48,28 @@
       </div>
       <div class="champion_wrap">
         <ul class="champion">
-          <li></li>
+          <li v-for="(item, index) in _champions" :key="index">
+            <img :src="item.imageUrl" alt="championImage" class="championImage">
+            <p class="name">{{ item.name }}</p>
+            <p class="score">
+              <span class="winLose">{{ getWinsRate(item.wins, item.losses) }} ({{ item.wins }}승 {{ item.losses }}패)</span>
+              <!-- <span class="average"></span> -->
+            </p>
+          </li>
         </ul>
       </div>
-      <div class="position">
-        position
+      <div class="positions_wrap">
+        <p class="title">선호 포지션 (랭크)</p>
+        <ul class="positions">
+          <li v-for="(item, index) in _positions" :key="index">
+            <img :src="require(`@/assets/images/icon-mostposition-${item.position.toLowerCase() || 'top'}.svg`)" alt="positionImage" class="positionImage">
+            <p class="name">{{ item.position | positionFilter }}</p>
+            <p class="score">
+              <span class="winLose">{{ getWinsRate(item.wins, item.losses) }}</span>
+              <!-- <span class="average"></span> -->
+            </p>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -64,6 +81,12 @@ export default {
   computed: {
     _summary () {
       return this.$store.getters.getMatchList.summary
+    },
+    _champions () {
+      return this.$store.getters.getMatchList.champions
+    },
+    _positions () {
+      return this.$store.getters.getMatchList.positions
     }
   },
   data () {
@@ -101,12 +124,12 @@ export default {
   @include clearfix;
   background-color: #ededed;
   border: 1px solid $border;
-
   margin-bottom: 16px;
 
   > div {
     @include clearfix;
     float: left;
+    height: 160px;
     border-right: 1px solid $border;
 
     .donut_wrap {
@@ -161,6 +184,78 @@ export default {
         color: #c6443e;
       }
     }
+
+    &.champion_wrap {
+      width: 230px;
+      padding: 10px;
+
+      .champion {
+        > li {
+          @include clearfix;
+          padding: 6px;
+
+          .championImage {
+            float: left;
+            width: 34px;
+            height: 34px;
+            margin-right: 8px;
+          }
+
+          .name {
+            margin-bottom: 3px;
+            font-size: 14px;
+            color: #333333;
+          }
+
+          .score {
+            font-weight: bold;
+            font-size: 11px;
+            color: #333333;
+
+            .winLose {
+              min-width: 73px;
+              border-right: 1px solid #cdd2d2;
+            }
+          }
+        }
+      }
+    }
+
+    &.positions_wrap {
+      padding: 16px;
+      border-right: none;
+
+      .title {
+        font-size: 12px;
+        color: #666666;
+        margin-bottom: 10px;
+      }
+
+      .positions {
+        > li {
+          @include clearfix;
+          padding: 12px 0 10px 0;
+
+          .positionImage {
+            float: left;
+            margin-right: 8px;
+          }
+
+          .name {
+            font-size: 14px;
+            color: #333333;
+            // margin-bottom: 3px;
+          }
+
+          .winLose {
+            font-size: 11px;
+            font-weight: bold;
+            color: #1f8ecd;
+          }
+        }
+      }
+    }
   }
 }
+
 </style>

@@ -7,6 +7,17 @@ export default {
         return {
         }
       },
+      filters: {
+        positionFilter (position) {
+          switch (position.toLowerCase()) {
+            case 'top': return '탑'
+            case 'jng': return '정글'
+            case 'mid': return '미드'
+            case 'adc': return '원딜'
+            case 'sub': return '서폿'
+          }
+        }
+      },
       computed: {
       },
       methods: {

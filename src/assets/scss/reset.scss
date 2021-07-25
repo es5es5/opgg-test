@@ -1,0 +1,38 @@
+@charset 'utf-8';
+
+/* reset */
+*, *::after, *::before { box-sizing: border-box; }
+
+// hidden scrollbar
+html, body {
+  margin: 0;
+  padding: 0;
+	position: relative;
+}
+
+button, input, select,
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	font-size: 1rem;
+	font-weight: normal;
+}
+
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+p, span{
+	margin: 0;
+	padding: 0;
+}
+
+/* Anchor */
+a {
+	text-decoration: none;
+	&:hover,
+	&:active,
+	&:focus { text-decoration: none; }
+}
