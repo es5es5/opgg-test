@@ -21,7 +21,12 @@ export default new Vuex.Store({
       previousTiers: []
     },
     mostInfo: {},
-    matchList: {}
+    matchList: {
+      games: [],
+      positions: [{
+        position: ''
+      }],
+    }
   },
   mutations: {
     setSummoner (state, value) { state.summoner = value },
@@ -32,6 +37,9 @@ export default new Vuex.Store({
     getSummoner (state) { return state.summoner },
     getMostInfo (state) { return state.mostInfo },
     getMatchList (state) { return state.matchList },
+    // Match
+    getGames솔랭 (state) { return state.matchList.games.filter(item => item.gameType === '솔랭') || [] },
+    getGames자랭 (state) { return state.matchList.games.filter(item => item.gameType === '자유 5:5 랭크') || [] },
   },
   actions: {
   },

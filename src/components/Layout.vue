@@ -9,6 +9,7 @@
       </div>
       <div class="right">
         <Average />
+        <games />
       </div>
     </main>
   </div>
@@ -20,6 +21,7 @@ import SummonerProfile from './SummonerProfile'
 import Rank from './Rank'
 import Stats from './Stats.vue'
 import Average from './Average.vue'
+import Games from './Games.vue'
 
 export default {
   name: 'MainLayout',
@@ -29,6 +31,7 @@ export default {
     Rank,
     Stats,
     Average,
+    Games,
   }
 }
 </script>

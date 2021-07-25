@@ -81,6 +81,7 @@ export default {
   border: 1px solid $border;
 
   padding: 16px;
+  margin-bottom: 16px;
 
   div {
     float: left;

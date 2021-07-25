@@ -26,7 +26,6 @@ export default {
       axios.get(
         `https://codingtest.op.gg/api/summoner/${this.summonerName}`
       ).then(result => {
-        console.log(result)
         this.$store.commit('setSummoner', result.data.summoner)
       })
     },
@@ -34,7 +33,6 @@ export default {
       axios.get(
         `https://codingtest.op.gg/api/summoner/${this.summonerName}/mostInfo`
       ).then(result => {
-        console.log(result)
         this.$store.commit('setMostInfo', result.data)
       })
     },
@@ -42,7 +40,6 @@ export default {
       axios.get(
         `https://codingtest.op.gg/api/summoner/${this.summonerName}/matches`
       ).then(result => {
-        console.log(result)
         this.$store.commit('setMatchList', result.data)
       })
     },
@@ -50,7 +47,6 @@ export default {
       axios.get(
         `https://codingtest.op.gg/api/summoner/${this.summonerName}/matchDetail/${gameId}`
       ).then(result => {
-        console.log(result)
         this.$store.commit('setMatchDetail', result.data)
       })
     },
@@ -58,7 +54,6 @@ export default {
       axios.get(
         'http://ddragon.leagueoflegends.com/cdn/10.15.1/data/ko_KR/item.json'
       ).then(result => {
-        console.log(result)
         this.$store.commit('setMatchDetail', result.data)
       })
     },
