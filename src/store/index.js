@@ -26,6 +26,10 @@ export default new Vuex.Store({
       positions: [{
         position: ''
       }],
+      summary: {
+        losses: 0,
+        wins: 0,
+      }
     }
   },
   mutations: {

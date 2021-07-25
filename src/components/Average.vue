@@ -6,33 +6,50 @@
       <li :class="active === '자유랭크' ? 'active' : ''" @click="active = '자유랭크'">자유랭크</li>
     </ul>
     <div class="average">
-      <div class="donut_wrap">
-        <div class="donutTitle">20전 11승 9패</div>
-        <vc-donut
-          background="#ededed"
-          foreground="grey"
-          :size="90"
-          unit="px"
-          legend-placement="right"
-          :thickness="29"
-          :sections="[
-          {
-            value: 9,
-            color: '#ee5a52'
-          },
-          {
-            value: 11,
-            color: '#1f8ecd'
-          }]"
-          :total="20"
-          :start-angle="0"
-          :auto-adjust-text-size="true"
-          >
-        <p class="donutText">55%</p>
-        </vc-donut>
+      <div>
+        <div class="donut_wrap">
+          <div class="donutTitle">{{ _summary.wins + _summary.losses }}전 {{ _summary.wins }}승 {{ _summary.losses }}패</div>
+          <vc-donut
+            background="#ededed"
+            foreground="grey"
+            :size="90"
+            unit="px"
+            legend-placement="right"
+            :thickness="29"
+            :sections="[
+            {
+              value: _summary.losses,
+              color: '#ee5a52'
+            },
+            {
+              value: _summary.wins,
+              color: '#1f8ecd'
+            }]"
+            :total="20"
+            :start-angle="0"
+            :auto-adjust-text-size="true"
+            >
+          <p class="donutText">{{ getWinsRate(_summary.wins, _summary.losses) }}</p>
+          </vc-donut>
+        </div>
+        <div class="kda_wrap">
+          <p class="kda">
+            <span class="kills">{{ getAvg(_summary.kills, (_summary.wins + _summary.losses), 2) }}</span>
+            <span class="separator"> / </span>
+            <span class="deaths">{{ getAvg(_summary.deaths, (_summary.wins + _summary.losses), 2) }}</span>
+            <span class="separator"> / </span>
+            <span class="assists">{{ getAvg(_summary.assists, (_summary.wins + _summary.losses), 2) }}</span>
+          </p>
+          <p>
+            <span class="score">{{ getAvg(_summary.kills + _summary.assists, _summary.deaths, 2) }}:1 </span>
+            <span class="contributionForKillRate">({{ getAvg((_summary.wins + _summary.losses), (_summary.kills + _summary.assists), 2) * 100 }}%)</span>
+          </p>
+        </div>
       </div>
-      <div class="champions">
-        champions
+      <div class="champion_wrap">
+        <ul class="champion">
+          <li></li>
+        </ul>
       </div>
       <div class="position">
         position
@@ -44,6 +61,11 @@
 <script>
 export default {
   name: 'Average',
+  computed: {
+    _summary () {
+      return this.$store.getters.getMatchList.summary
+    }
+  },
   data () {
     return {
       active: '솔로게임'
@@ -80,24 +102,24 @@ export default {
   background-color: #ededed;
   border: 1px solid $border;
 
-  padding: 16px;
   margin-bottom: 16px;
 
-  div {
+  > div {
+    @include clearfix;
     float: left;
-    margin: 0 16px;
+    border-right: 1px solid $border;
 
-    &.donut_wrap {
-      width: 250px;
-
-      .donut {
-        text-align: center;
-        margin: 0 auto;
-      }
+    .donut_wrap {
+      padding: 16px 24px 23px 24px;
+      float: left;
 
       .donutTitle {
+        display: block;
         width: 100%;
         text-align: center;
+        color: #666666;
+        font-size: 12px;
+        margin-bottom: 14px;
       }
 
       .donutText {
@@ -107,11 +129,37 @@ export default {
         color: #555555;
       }
     }
-    &:nth-child(2) {
-      width: 228px;
-    }
-    &:nth-child(3) {
-      background-color: red;
+
+    .kda_wrap {
+      float: left;
+      width: 150px;
+      text-align: center;
+      padding: 44px 35px 0 20px;
+
+      .kda {
+        font-size: 11px;
+        font-weight: bold;
+        color: #333333;
+        margin-bottom: 6px;
+      }
+
+      .deaths { color: #c6443e; }
+
+      .separator {
+        font-weight: normal;
+        color: #999999;
+      }
+
+      .score {
+        font-size: 16px;
+        font-weight: bold;
+        color: #2daf7f;
+      }
+
+      .contributionForKillRate {
+        font-size: 16px;
+        color: #c6443e;
+      }
     }
   }
 }
