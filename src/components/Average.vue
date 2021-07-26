@@ -53,7 +53,7 @@
             <p class="name">{{ item.name }}</p>
             <p class="score">
               <span class="winLose">{{ getWinsRate(item.wins, item.losses) }} ({{ item.wins }}승 {{ item.losses }}패)</span>
-              <!-- <span class="average"></span> -->
+              <span class="averageScore">{{ getAvg(item.kills + item.assists, item.deaths, 2) }}:1 평점</span>
             </p>
           </li>
         </ul>
@@ -66,7 +66,7 @@
             <p class="name">{{ item.position | positionFilter }}</p>
             <p class="score">
               <span class="winLose">{{ getWinsRate(item.wins, item.losses) }}</span>
-              <!-- <span class="average"></span> -->
+              <span class="averageScore">승률 {{ getWinsRate(item.wins, item.losses) }}</span>
             </p>
           </li>
         </ul>
@@ -186,7 +186,7 @@ export default {
     }
 
     &.champion_wrap {
-      width: 230px;
+      width: 231px;
       padding: 10px;
 
       .champion {
@@ -213,8 +213,13 @@ export default {
             color: #333333;
 
             .winLose {
-              min-width: 73px;
-              border-right: 1px solid #cdd2d2;
+              display: inline-block;
+              width: 87px;
+              border-right: 1px solid $border;
+            }
+
+            .averageScore {
+              padding-left: 6px;
             }
           }
         }
@@ -222,6 +227,7 @@ export default {
     }
 
     &.positions_wrap {
+      width: 168px;
       padding: 16px;
       border-right: none;
 
@@ -247,10 +253,23 @@ export default {
             // margin-bottom: 3px;
           }
 
-          .winLose {
-            font-size: 11px;
+          .score {
             font-weight: bold;
-            color: #1f8ecd;
+            font-size: 11px;
+            color: #333333;
+
+            .winLose {
+              display: inline-block;
+              font-weight: bold;
+              color: #1f8ecd;
+              width: 36px;
+              padding-right: 6px;
+              border-right: 1px solid $border;
+            }
+
+            .averageScore {
+              padding-left: 6px;
+            }
           }
         }
       }

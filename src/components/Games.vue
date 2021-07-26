@@ -1,10 +1,10 @@
 <template>
   <section>
     <ul class="games">
-      <li v-for="(game, gameIndex) in _솔랭" :key="gameIndex">
+      <li v-for="(game, gameIndex) in _솔랭" :key="gameIndex" :class="game.isWin ? 'win' : 'lose'">
         <div class="_1">
           <p>{{ game.gameType }}</p>
-          <p>{{ game.createDate }}</p>
+          <p>{{ getTimeForToday(game.createDate * 1000) }}</p>
           <p>{{ game.isWin }}</p>
           <p>{{ game.gameLength }}</p>
         </div>
@@ -85,6 +85,18 @@ export default {
 .games {
   > li {
     @include clearfix;
+    margin-bottom: 8px;
+    border: 1px solid #a7a7a7;
+
+    &.win {
+      background-color: #b0ceea;
+      border-color: #a1b8cd;
+    }
+
+    &.lose {
+      background-color: #d6b5b2;
+      border-color: #c0aba8;
+    }
 
     div {
       @include clearfix;
@@ -93,8 +105,10 @@ export default {
       &._1 {
         @include clearfix;
         width: 70px;
+        margin: 13px 21px
       }
       &._2 {
+        margin: 15px 0;
         @include clearfix;
         width: 110px;
 
@@ -120,14 +134,18 @@ export default {
         }
       }
       &._3 {
+        margin: 30px 0;
+        text-align: center;
         width: 136px;
       }
       &._4 {
         @include clearfix;
+        margin: 13px 0;
         width: 100px;
       }
       &._5 {
         @include clearfix;
+        margin: 15px 0;
         width: 100px;
         margin-right: 10px;
 
