@@ -157,7 +157,7 @@ export default {
       float: left;
       width: 150px;
       text-align: center;
-      padding: 44px 35px 0 20px;
+      margin-top: 62px;
 
       .kda {
         font-size: 11px;
