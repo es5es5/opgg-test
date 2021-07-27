@@ -51,6 +51,42 @@ export default {
   border-radius: 2px;
   background-color: #f2f2f2;
 
+  > p {
+    margin-bottom: 4px;
+  }
+
+  .name {
+    font-size: 11px;
+    color: #879292;
+  }
+
+  .gameCount {
+    font-size: 12px;
+    color: #353a3a;
+  }
+
+  .tier {
+    font-size: 15px;
+    font-weight: bold;
+    color: #1f8ecd;
+  }
+
+  .tierRankPoint {
+    font-size: 12px;
+    font-weight: bold;
+    color: #555e5e;
+  }
+
+  .winLose {
+    font-size: 12px;
+    color: #879292;
+  }
+
+  .winRate {
+    font-size: 12px;
+    color: #879292;
+  }
+
 }
 .tireImage {
   float: left;

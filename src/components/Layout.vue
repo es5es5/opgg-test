@@ -40,7 +40,7 @@ export default {
 #main {
   @include clearfix;
 
-  width: 1440px;
+  width: 1000px;
   margin: 0 auto;
 }
 .left {

@@ -1,24 +1,22 @@
-# opgg-test
+# localhost 데브 서버로 띄우는 방법.
 
-## Project setup
-```
-npm install
-```
+```bash
+$ git clone https://github.com/es5es5/opgg-test.git
+$ cd opgg-test
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+// import submodule
+$ git submodule init
+$ git submodule sync
+$ git submodule update --remote --merge
 
-### Lints and fixes files
-```
-npm run lint
-```
+$ npm install
+$ npm run serve
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+---
+App running at:
+- Local:   http://localhost:8000/
+- Network: http://xxx.xxx.xxx.xxx:8000/
+---
+```

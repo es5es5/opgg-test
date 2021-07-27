@@ -51,7 +51,7 @@ export default {
   },
   data () {
     return {
-      active: 'recent'
+      active: 'champions'
     }
   },
   methods: {

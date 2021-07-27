@@ -7,7 +7,7 @@
     </div>
     <div class="profileInfo_wrap">
       <p class="name">{{ _summoner.name }}</p>
-      <p>레더 랭킹 <strong>{{ _summoner.ladderRank.rank }}</strong>위 (상위 {{ _summoner.ladderRank.rankPercentOfTop }}%)</p>
+      <p class="ranking">레더 랭킹 <strong>{{ _summoner.ladderRank.rank }}</strong>위 (상위 <strong>{{ _summoner.ladderRank.rankPercentOfTop }}</strong>%)</p>
     </div>
   </div>
 </template>
@@ -34,9 +34,7 @@ export default {
 .profileImage_wrap {
   float: left;
   position: relative;
-  margin: 6px 20px 25px 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 40px 30px 10px 0;
 
   .profileImage {
     width: 100px;
@@ -66,6 +64,22 @@ export default {
     font-size: 14px;
     text-align: center;
     color: #eabd56;
+  }
+}
+
+.profileInfo_wrap {
+  float: left;
+  margin-top: 40px;
+
+  .name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #242929;
+  }
+
+  .ranking {
+    font-size: 11px;
+    color: #657070;
   }
 }
 
